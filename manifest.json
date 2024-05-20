@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "X Video Hider",
+  "description": "Hides posts with videos on your X timeline and threads",
+  "version": "1.0",
+  "permissions": ["storage", "tabs", "scripting"],
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_icon": "images/elon.png"
+  },
+  "background": {
+    "service_worker": "service-worker.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "js": ["scripts/content.js"],
+      "matches": [
+        "https://twitter.com/*",
+        "https://x.com/*"
+      ]
+    }
+  ]
+}

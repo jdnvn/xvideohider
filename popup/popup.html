@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>X Video Hider</title>
+    <style>
+        body {
+            width: 200px;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding-bottom: 10px;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .toggle-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 10px;
+            width: 100%;
+        }
+        .label-text {
+            margin-right: 10px;
+            font-size: 14px;
+        }
+        .toggle-slider {
+            position: relative;
+            display: inline-block;
+            width: 50px; /* Adjusted width */
+            height: 24px; /* Adjusted height */
+            cursor: pointer;
+            background-color: #ccc;
+            border-radius: 24px;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+        .toggle-slider:before {
+            content: "";
+            position: absolute;
+            height: 18px; /* Adjusted height */
+            width: 18px; /* Adjusted width */
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            border-radius: 50%;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+        input[type=checkbox] {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        input[type=checkbox]:checked + .toggle-slider {
+            background-color: #2196F3;
+        }
+        input[type=checkbox]:checked + .toggle-slider:before {
+            -webkit-transform: translateX(26px); /* Adjusted translateX */
+            -ms-transform: translateX(26px); /* Adjusted translateX */
+            transform: translateX(26px); /* Adjusted translateX */
+        }
+
+                /* Light Theme */
+        @media (prefers-color-scheme: light) {
+            body {
+                background-color: #ffffff;
+                color: #000000;
+            }
+            .toggle-slider {
+                background-color: #ccc;
+            }
+            input[type=checkbox]:checked + .toggle-slider {
+                background-color: #2196F3;
+            }
+        }
+
+        /* Dark Theme */
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-color: #2e2e2e;
+                color: #ffffff;
+            }
+            .toggle-slider {
+                background-color: #555;
+            }
+            input[type=checkbox]:checked + .toggle-slider {
+                background-color: #2196F3;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>X Video Hider</h2>
+        <label class="toggle-container">
+            <span class="label-text">Threads</span>
+            <input type="checkbox" id="threads-toggle">
+            <span class="toggle-slider"></span>
+        </label>
+        <label class="toggle-container">
+            <span class="label-text">Timeline</span>
+            <input type="checkbox" id="timeline-toggle">
+            <span class="toggle-slider"></span>
+        </label>
+    </div>
+    <script src="popup.js"></script>
+</body>
+</html>
